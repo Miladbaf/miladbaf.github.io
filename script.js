@@ -13,6 +13,39 @@ navToggle.addEventListener('click', () => {
     spans[2].style.transform = navMenu.classList.contains('active') ? 'rotate(45deg) translate(-5px, -6px)' : '';
 });
 
+// Dark Mode Toggle
+const themeToggle = document.getElementById('themeToggle');
+const htmlElement = document.documentElement;
+const themeIcon = themeToggle.querySelector('i');
+
+// Check for saved theme preference or default to 'light'
+const currentTheme = localStorage.getItem('theme') || 'light';
+htmlElement.setAttribute('data-theme', currentTheme);
+
+// Update icon based on current theme
+if (currentTheme === 'dark') {
+    themeIcon.classList.remove('fa-moon');
+    themeIcon.classList.add('fa-sun');
+}
+
+// Toggle theme when button is clicked
+themeToggle.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    htmlElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update icon
+    if (newTheme === 'dark') {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+});
+
 // Close mobile menu when clicking on a link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -147,6 +180,6 @@ window.addEventListener('load', () => {
 });
 
 // Console message for developers
-console.log('%c👋 Hi there!', 'font-size: 20px; color: #2563eb; font-weight: bold;');
-console.log('%cThanks for checking out my website!', 'font-size: 14px; color: #6b7280;');
-console.log('%cFeel free to reach out: milad.bafarassat@gmail.com', 'font-size: 12px; color: #9ca3af;');
+console.log('%c👋 Hi there!', 'font-size: 20px; color: #7A9D54; font-weight: bold;');
+console.log('%cThanks for checking out my website!', 'font-size: 14px; color: #5A6B5D;');
+console.log('%cFeel free to reach out: milad.bafarassat@gmail.com', 'font-size: 12px; color: #8FAE65;');
