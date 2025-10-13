@@ -690,9 +690,19 @@ body {
     padding: 2rem;
 }
 
+.footer p {
+    color: inherit;
+    margin: 0;
+}
+
 [data-theme="dark"] .footer {
-    background-color: #1a1f1a;
-    color: var(--text-primary);
+    background-color: #2a322a;
+    color: #E8F0E8;
+    border-top: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .footer p {
+    color: #E8F0E8;
 }
 
 /* Animations */
@@ -778,6 +788,3 @@ body {
         font-size: 2rem;
     }
 }
-
-
-
