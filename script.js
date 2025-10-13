@@ -1,3 +1,47 @@
+// Loading Animation
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        // Remove from DOM after animation
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    }, 1000); // Show loader for 1 second
+});
+
+// Scroll Progress Bar
+const scrollProgress = document.getElementById('scrollProgress');
+
+const updateScrollProgress = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercent = (scrollTop / scrollHeight) * 100;
+    scrollProgress.style.width = scrollPercent + '%';
+};
+
+window.addEventListener('scroll', updateScrollProgress);
+
+// Back to Top Button
+const backToTopBtn = document.getElementById('backToTop');
+
+const toggleBackToTop = () => {
+    if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+    } else {
+        backToTopBtn.classList.remove('visible');
+    }
+};
+
+window.addEventListener('scroll', toggleBackToTop);
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
 // Mobile Navigation Toggle
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
@@ -117,36 +161,83 @@ sections.forEach(section => {
     observer.observe(section);
 });
 
-// Animate elements on scroll
+// Enhanced Animate elements on scroll with staggered effects
 const animateOnScroll = () => {
     const elements = document.querySelectorAll('.research-card, .publication-item, .experience-card, .timeline-item, .skill-category');
     
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
+                // Get the index within its parent for staggered animation
+                const siblings = Array.from(entry.target.parentElement.children);
+                const index = siblings.indexOf(entry.target);
+                
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 100);
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                }, index * 150); // Staggered delay
+                
                 observer.unobserve(entry.target);
             }
         });
     }, {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -100px 0px'
     });
     
     elements.forEach(element => {
         element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        element.style.transform = 'translateY(50px) scale(0.95)';
+        element.style.transition = 'opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
         observer.observe(element);
+    });
+
+    // Animate section titles
+    const sectionTitles = document.querySelectorAll('.section-title');
+    
+    const titleObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                titleObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    sectionTitles.forEach(title => {
+        title.style.opacity = '0';
+        title.style.transform = 'translateY(-30px)';
+        title.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        titleObserver.observe(title);
     });
 };
 
 // Initialize animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     animateOnScroll();
+    
+    // Animate about section paragraphs
+    const aboutParagraphs = document.querySelectorAll('.about-text p');
+    const aboutObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }, index * 200);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    aboutParagraphs.forEach(p => {
+        p.style.opacity = '0';
+        p.style.transform = 'translateX(-30px)';
+        p.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        aboutObserver.observe(p);
+    });
 });
 
 // Add typing effect to hero subtitle (optional)
@@ -168,19 +259,23 @@ if (subtitleText) {
     setTimeout(typeWriter, 1000);
 }
 
-// Smooth fade-in for hero elements
+// Smooth fade-in for hero elements after loading
 window.addEventListener('load', () => {
-    const heroElements = document.querySelectorAll('.hero-content > *');
-    heroElements.forEach((element, index) => {
-        setTimeout(() => {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }, index * 200);
-    });
+    setTimeout(() => {
+        const heroElements = document.querySelectorAll('.hero-content > *');
+        heroElements.forEach((element, index) => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            setTimeout(() => {
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }, 1200 + (index * 150)); // Start after loader disappears
+        });
+    }, 100);
 });
 
 // Console message for developers
 console.log('%c👋 Hi there!', 'font-size: 20px; color: #7A9D54; font-weight: bold;');
 console.log('%cThanks for checking out my website!', 'font-size: 14px; color: #5A6B5D;');
 console.log('%cFeel free to reach out: milad.bafarassat@gmail.com', 'font-size: 12px; color: #8FAE65;');
-
