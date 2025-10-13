@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Loading Animation -->
+    <div class="loader-wrapper" id="loader">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">MB</div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container">
@@ -64,7 +80,7 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>I'm a recent graduate with a BSc in Computer Science and Engineering from Sabanci University, and currently completing a double major in Electronics Engineering with a minor in Physics.</p>
+                    <p>I'm a recent graduate with a BSc in Computer Science and Engineering from Sabanci University (CGPA: 3.73/4.0, top 8%), and currently completing a double major in Electronics Engineering with a minor in Physics.</p>
                     
                     <p>My research interests lie at the intersection of artificial intelligence, deep learning, and wireless communications. I've contributed to cutting-edge research on LLM agents, mechanistic interpretability, and FET modeling, resulting in publications at top-tier venues including ICML and SMACD.</p>
                     
@@ -300,10 +316,10 @@
                 <div class="skill-category">
                     <h3><i class="fas fa-microchip"></i> Electronics & Engineering</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Hardware Modeling</span>
+                        <span class="skill-tag">FET Modeling</span>
                         <span class="skill-tag">Signal Processing</span>
-                        <span class="skill-tag">Multimedia Communications</span>
-                        <span class="skill-tag">Computer Networks</span>
+                        <span class="skill-tag">SPICE</span>
+                        <span class="skill-tag">Verilog-A</span>
                     </div>
                 </div>
 
@@ -367,5 +383,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
