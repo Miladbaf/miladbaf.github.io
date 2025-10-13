@@ -690,6 +690,11 @@ body {
     padding: 2rem;
 }
 
+[data-theme="dark"] .footer {
+    background-color: #1a1f1a;
+    color: var(--text-primary);
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
@@ -773,4 +778,5 @@ body {
         font-size: 2rem;
     }
 }
+
 
