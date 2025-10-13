@@ -696,13 +696,13 @@ body {
 }
 
 [data-theme="dark"] .footer {
-    background-color: #2a322a;
-    color: #E8F0E8;
+    background-color: #1a1f1a;
+    color: #ffffff;
     border-top: 1px solid var(--border-color);
 }
 
 [data-theme="dark"] .footer p {
-    color: #E8F0E8;
+    color: #ffffff;
 }
 
 /* Animations */
