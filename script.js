@@ -163,7 +163,7 @@ sections.forEach(section => {
 
 // Enhanced Animate elements on scroll with staggered effects
 const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.research-card, .publication-item, .experience-card, .timeline-item, .skill-category');
+    const elements = document.querySelectorAll('.research-card, .publication-item, .experience-card, .timeline-item, .skill-category, .news-item');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -174,7 +174,7 @@ const animateOnScroll = () => {
                 
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    entry.target.style.transform = 'translateY(0) translateX(0) scale(1)';
                 }, index * 150); // Staggered delay
                 
                 observer.unobserve(entry.target);
@@ -186,9 +186,14 @@ const animateOnScroll = () => {
     });
     
     elements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(50px) scale(0.95)';
-        element.style.transition = 'opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        // Don't set transform for news items as they have their own animation
+        if (element.classList.contains('news-item')) {
+            element.style.transition = 'opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        } else {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(50px) scale(0.95)';
+            element.style.transition = 'opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        }
         observer.observe(element);
     });
 
