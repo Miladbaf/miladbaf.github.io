@@ -1090,20 +1090,18 @@ body {
     }
 
     .news-timeline::before {
-        left: 30px;
+        left: 0;
+        width: 3px;
     }
 
     .news-item {
         flex-direction: column;
         gap: 0.5rem;
-        margin-left: 3.5rem;
+        margin-left: 1.5rem;
     }
 
     .news-item::before {
-        left: 21px;
-        top: 5px;
-        width: 18px;
-        height: 18px;
+        display: none;
     }
 
     .news-date {
@@ -1160,4 +1158,3 @@ body {
         font-size: 1.5rem;
     }
 }
-
