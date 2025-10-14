@@ -1090,31 +1090,40 @@ body {
     }
 
     .news-timeline::before {
-        left: 20px;
+        left: 30px;
     }
 
     .news-item {
         flex-direction: column;
         gap: 0.5rem;
-        margin-left: 2rem;
+        margin-left: 3.5rem;
     }
 
     .news-item::before {
-        left: 11px;
+        left: 21px;
+        top: 5px;
+        width: 18px;
+        height: 18px;
     }
 
     .news-date {
         min-width: auto;
         text-align: left;
+        padding-top: 0;
+    }
+
+    .news-month,
+    .news-year {
+        display: inline;
+        font-size: 1rem;
     }
 
     .news-month {
-        display: inline;
         margin-right: 0.5rem;
     }
 
-    .news-year {
-        display: inline;
+    .news-content {
+        padding: 1.2rem;
     }
 
     .back-to-top {
@@ -1151,3 +1160,4 @@ body {
         font-size: 1.5rem;
     }
 }
+
