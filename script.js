@@ -281,6 +281,6 @@ window.addEventListener('load', () => {
 });
 
 // Console message for developers
-console.log('%c👋 Hi there!', 'font-size: 20px; color: #7A9D54; font-weight: bold;');
+console.log('%c👋 Hi there!', 'font-size: 20px; color: #35590D; font-weight: bold;');
 console.log('%cThanks for checking out my website!', 'font-size: 14px; color: #5A6B5D;');
-console.log('%cFeel free to reach out: milad.bafarassat@gmail.com', 'font-size: 12px; color: #8FAE65;');
+console.log('%cFeel free to reach out: milad.bafarassat@gmail.com', 'font-size: 12px; color: #4A7012;');
