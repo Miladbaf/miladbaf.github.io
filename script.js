@@ -245,45 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Animated Statistics Counter
-function animateCounter() {
-    const counters = document.querySelectorAll('.stat-number');
-    
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const duration = 2000; // 2 seconds
-        const increment = target / (duration / 16); // 60fps
-        let current = 0;
-        
-        const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-                counter.textContent = Math.floor(current);
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target;
-            }
-        };
-        
-        updateCounter();
-    });
-}
-
-// Trigger counter animation when stats section is visible
-const statsSection = document.querySelector('.stats-section');
-if (statsSection) {
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter();
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.3 });
-    
-    statsObserver.observe(statsSection);
-}
-
 // Add typing effect to hero subtitle (optional)
 const subtitleText = document.querySelector('.hero-subtitle');
 if (subtitleText) {
