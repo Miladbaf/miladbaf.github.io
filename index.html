@@ -1,560 +1,622 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Milad Bafarassat - Computer Science & Electronics Engineering Student, AI Researcher">
-    <meta name="keywords" content="AI Researcher & PhD Student | Computer Scientist & Electronics Engineer">
-    <title>Milad Bafarassat - AI Researcher & Engineer</title>
+    <meta name="description" content="Milad Bafarassat — PhD researcher at Koç University working at the intersection of wireless communications and AI. Deep learning, transformers, and the physical layer.">
+    <meta name="author" content="Milad Bafarassat">
+    <meta property="og:title" content="Milad Bafarassat — Wireless × AI">
+    <meta property="og:description" content="PhD researcher at Koç University. Deep learning and transformers for wireless communications.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#f4f7f6" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0c1514" media="(prefers-color-scheme: dark)">
+    <title>Milad Bafarassat — Wireless Communications × AI</title>
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230e7268'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23f4f7f6' text-anchor='middle'%3EMB%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Set theme before first paint to avoid a flash -->
+    <script>
+        (function () {
+            document.documentElement.classList.replace('no-js', 'js');
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (e) {}
+            var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
 <body>
-    <!-- Loading Animation -->
-    <div class="loader-wrapper" id="loader">
-        <div class="loader">
-            <div class="loader-circle"></div>
-            <div class="loader-text">MB</div>
+    <a class="skip-link" href="#about">Skip to content</a>
+
+    <!-- ============ Header / instrument strip ============ -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <a href="#top" class="brand">
+                <span class="brand-mark" aria-hidden="true"></span>
+                <span class="brand-name">M.&hairsp;Bafarassat</span>
+            </a>
+
+            <nav class="site-nav" id="siteNav" aria-label="Primary">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link"><span class="nav-index" aria-hidden="true">I</span>About</a></li>
+                    <li><a href="#news" class="nav-link"><span class="nav-index" aria-hidden="true">II</span>News</a></li>
+                    <li><a href="#research" class="nav-link"><span class="nav-index" aria-hidden="true">III</span>Research</a></li>
+                    <li><a href="#publications" class="nav-link"><span class="nav-index" aria-hidden="true">IV</span>Publications</a></li>
+                    <li><a href="#education" class="nav-link"><span class="nav-index" aria-hidden="true">V</span>Education</a></li>
+                    <li><a href="#experience" class="nav-link"><span class="nav-index" aria-hidden="true">VI</span>Experience</a></li>
+                    <li><a href="#skills" class="nav-link"><span class="nav-index" aria-hidden="true">VII</span>Skills</a></li>
+                    <li><a href="#contact" class="nav-link"><span class="nav-index" aria-hidden="true">VIII</span>Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.4A8.4 8.4 0 0 1 9.6 3.8a8.4 8.4 0 1 0 10.6 10.6Z"/></svg>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+                    <span></span><span></span>
+                </button>
+            </div>
         </div>
+    </header>
+
+    <!-- Mobile navigation overlay -->
+    <div class="mobile-nav" id="mobileNav" hidden>
+        <nav aria-label="Mobile">
+            <ul>
+                <li><a href="#about" class="mobile-link"><span aria-hidden="true">I</span>About</a></li>
+                <li><a href="#news" class="mobile-link"><span aria-hidden="true">II</span>News</a></li>
+                <li><a href="#research" class="mobile-link"><span aria-hidden="true">III</span>Research</a></li>
+                <li><a href="#publications" class="mobile-link"><span aria-hidden="true">IV</span>Publications</a></li>
+                <li><a href="#education" class="mobile-link"><span aria-hidden="true">V</span>Education</a></li>
+                <li><a href="#experience" class="mobile-link"><span aria-hidden="true">VI</span>Experience</a></li>
+                <li><a href="#skills" class="mobile-link"><span aria-hidden="true">VII</span>Skills</a></li>
+                <li><a href="#contact" class="mobile-link"><span aria-hidden="true">VIII</span>Contact</a></li>
+            </ul>
+        </nav>
     </div>
 
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
+    <main id="top">
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+        <!-- ============ Hero ============ -->
+        <section class="hero" id="home">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <p class="eyebrow">PhD Researcher · Wireless Networks Lab · Koç University</p>
+                    <h1 class="hero-title">Milad<br>Bafarassat</h1>
+                    <p class="hero-lede">
+                        Computer scientist &amp; electronics engineer specializing in deep learning,
+                        transformers, and their application in wireless communications.
+                        Advised by <a href="https://mysite.ku.edu.tr/scoleri/" target="_blank" rel="noopener">Prof.&nbsp;Sinem&nbsp;Coleri</a> (IEEE&nbsp;Fellow).
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#research" class="btn btn-solid">View research</a>
+                        <a href="CV_Milad_Bafarassat.pdf" download class="btn btn-outline">Download CV&nbsp;<span aria-hidden="true">↓</span></a>
+                    </div>
+                    <ul class="hero-links" aria-label="Profiles">
+                        <li>
+                            <a href="https://github.com/MiladBaf" target="_blank" rel="noopener" aria-label="GitHub">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8A10.2 10.2 0 0 0 8.77 21.68c.51.1.7-.22.7-.49v-1.9c-2.84.62-3.44-1.2-3.44-1.2-.46-1.18-1.13-1.5-1.13-1.5-.93-.63.07-.62.07-.62 1.03.07 1.57 1.06 1.57 1.06.91 1.57 2.39 1.11 2.98.85.09-.66.36-1.11.64-1.37-2.27-.26-4.65-1.13-4.65-5.04 0-1.11.4-2.03 1.05-2.74-.1-.26-.46-1.3.1-2.7 0 0 .86-.28 2.8 1.05a9.7 9.7 0 0 1 5.1 0c1.95-1.33 2.8-1.05 2.8-1.05.56 1.4.21 2.44.1 2.7.65.71 1.05 1.63 1.05 2.74 0 3.92-2.39 4.78-4.66 5.03.37.32.69.94.69 1.9v2.82c0 .27.18.6.7.49A10.2 10.2 0 0 0 12 1.8Z"/></svg>
+                                <span>GitHub</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://scholar.google.com/citations?hl=en&user=a0-b8i4AAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener" aria-label="Google Scholar">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1.6 9.2 12 15.4l8.5-5.06v7.06h1.9V9.2L12 3Zm-6.1 9.9v4.3c0 1.7 2.73 3.1 6.1 3.1s6.1-1.4 6.1-3.1v-4.3L12 16.5l-6.1-3.6Z"/></svg>
+                                <span>Scholar</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/miladbafarassat" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.6 3.2a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM2.9 8.8h3.4v11.9H2.9V8.8Zm6 0h3.26v1.63h.05c.45-.86 1.56-1.77 3.22-1.77 3.44 0 4.08 2.27 4.08 5.22v6.82h-3.4v-6.05c0-1.44-.03-3.3-2-3.3-2 0-2.31 1.57-2.31 3.2v6.15H8.9V8.8Z"/></svg>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:milad.bafarassat@gmail.com" aria-label="Email">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.4h18a1 1 0 0 1 1 1v11.2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6.4a1 1 0 0 1 1-1Zm9 7.1 8.6-5.6H3.4L12 12.5Zm0 2.2L2.5 8.5v9.6h19V8.5L12 14.7Z"/></svg>
+                                <span>Email</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="nav-brand">Milad Bafarassat</div>
-            <button class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#news" class="nav-link">News</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#research" class="nav-link">Research</a></li>
-                <li><a href="#publications" class="nav-link">Publications</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-    </nav>
+                <!-- Signature figure: live steered beam pattern -->
+                <figure class="hero-figure" id="heroFigure">
+                    <div class="plot-frame">
+                        <svg id="beamPlot" viewBox="0 0 560 430" role="img"
+                             aria-label="Animated figure: an AI agent observes a wireless link through a feedback path, reasons using memory and tools, and issues steering commands; an eight-element antenna array slews its beam to each command">
+                            <g class="plot-grid">
+                                <circle cx="398" cy="190" r="140"/>
+                                <circle cx="398" cy="190" r="93.3"/>
+                                <circle cx="398" cy="190" r="46.7"/>
+                                <line x1="250" y1="190" x2="546" y2="190"/>
+                                <line x1="398" y1="42"  x2="398" y2="338"/>
+                                <line x1="299" y1="91"  x2="497" y2="289"/>
+                                <line x1="299" y1="289" x2="497" y2="91"/>
+                            </g>
+                            <g class="plot-ticks">
+                                <text x="542" y="194">0°</text>
+                                <text x="398" y="34" text-anchor="middle">90°</text>
+                                <text x="262" y="178">180°</text>
+                                <text x="392" y="352" text-anchor="end">270°</text>
+                                <text x="402" y="104" class="db">−10</text>
+                                <text x="402" y="150" class="db">−20</text>
+                                <text x="402" y="186" class="db">dB</text>
+                            </g>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Milad Bafarassat</h1>
-            <p class="hero-subtitle">AI Researcher & PhD Student | Computer Scientist & Electronics Engineer</p>
-            <p class="hero-description">Specializing in Deep Learning, Transformers, and their application in Wireless Communications</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="#research" class="btn btn-secondary">View Research</a>
-                <a href="CV_Milad_Bafarassat.pdf" download class="btn btn-cv">
-                    <i class="fas fa-download"></i> Download CV
-                </a>
+                            <!-- the agent -->
+                            <rect id="agentBox" class="agent-box" x="36" y="84" width="178" height="216" rx="10"/>
+                            <text x="48" y="104" class="nn-label">AGENT</text>
+
+                            <g id="satMem" class="sat-g">
+                                <line x1="112" y1="250" x2="74" y2="262"/>
+                                <rect x="52" y="262" width="44" height="22" rx="5"/>
+                                <text x="74" y="277" text-anchor="middle" class="nn-label sm">mem</text>
+                            </g>
+                            <g id="satTools" class="sat-g">
+                                <line x1="112" y1="250" x2="144" y2="262"/>
+                                <rect x="118" y="262" width="52" height="22" rx="5"/>
+                                <text x="144" y="277" text-anchor="middle" class="nn-label sm">tools</text>
+                            </g>
+
+                            <g id="nnGroup"></g>
+
+                            <!-- act: agent → array -->
+                            <g id="cmdGroup" class="nn-cmd-g">
+                                <line x1="164" y1="190" x2="248" y2="190"/>
+                                <polygon points="248,186 256,190 248,194"/>
+                            </g>
+                            <text x="210" y="178" text-anchor="middle" class="nn-label">act</text>
+
+                            <!-- observe: array → agent -->
+                            <g id="fbGroup" class="fb-g">
+                                <path id="fbPath" d="M398,334 V376 Q398,386 388,386 H64 Q54,386 54,376 V310"/>
+                                <polygon points="50,310 54,302 58,310"/>
+                            </g>
+                            <text x="226" y="378" text-anchor="middle" class="nn-label">observe</text>
+
+                            <path id="beamPath" class="beam-path" d=""/>
+                            <circle id="beamMarker" class="beam-marker" cx="398" cy="190" r="4" opacity="0"/>
+                        </svg>
+                        <div class="plot-readout" aria-hidden="true">
+                            <span id="steerReadout">θ₀ = 047.0°</span>
+                            <span id="loopStatus">t = 01 · act</span>
+                        </div>
+                    </div>
+                    <figcaption>Fig. 1. Agentic control over the air interface — observe the link, reason over memory and tools, act: an 8-element ULA slews to each θ₀.</figcaption>
+                </figure>
             </div>
-            <div class="social-links">
-                <a href="https://github.com/MiladBaf" target="_blank" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://scholar.google.com/citations?hl=en&user=a0-b8i4AAAAJ&view_op=list_works&sortby=pubdate" target="_blank" aria-label="Google Scholar">
-                    <i class="fas fa-graduation-cap"></i>
-                </a>
-                <a href="mailto:milad.bafarassat@gmail.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I am a PhD student at Koç University in Istanbul working on AI applications in Wireless Communications, advised by <a href="https://mysite.ku.edu.tr/scoleri/" target="_blank">Professor Sinem Coleri</a> (IEEE Fellow). I graduated with a BSc in Computer Science and Engineering from Sabanci University (with high honors), with a minor in Physics.</p>
-                    
-                    <p>My research interests lie at the intersection of artificial intelligence, deep learning, and wireless communications. I've contributed to cutting-edge research on LLM agents, mechanistic interpretability, and FET modeling, resulting in publications at top-tier venues including ICML and SMACD and IEEE OJCOMS.</p>
-                    
-                    <p>Before returning to academia, I spent several years as an AI Product Manager, where I led teams to develop innovative AI-driven products that reached thousands of users. This unique combination of research depth and industry experience allows me to bridge theoretical advancements with practical applications.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section id="news" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">News & Updates</h2>            
-                <div class="news-timeline">
-                    
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="news-month">April</span>
-                        <span class="news-year">2026</span>
+        <!-- ============ I. About ============ -->
+        <section id="about" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-no">Sec. I</span>
+                    <h2 class="section-title">About</h2>
+                </header>
+                <div class="about-grid">
+                    <div class="about-text flow">
+                        <p>I am a PhD student at Koç University in Istanbul working on AI applications in wireless communications, advised by <a href="https://mysite.ku.edu.tr/scoleri/" target="_blank" rel="noopener">Professor Sinem Coleri</a> (IEEE Fellow). I graduated with a BSc in Computer Science and Engineering from Sabancı University (with high honors), with a minor in Physics.</p>
+                        <p>My research interests lie at the intersection of artificial intelligence, deep learning, and wireless communications. I have contributed to research on LLM agents, mechanistic interpretability, and FET modeling, resulting in publications at venues including ICML, IEEE SMACD, and IEEE OJCOMS.</p>
+                        <p>Before returning to academia, I spent several years as an AI product manager, leading teams that shipped AI-driven products to tens of thousands of users. That combination of research depth and industry experience lets me bridge theoretical advances with practical systems.</p>
                     </div>
-                    <div class="news-content">
-                        <div class="news-badge highlight">🏆 Award</div>
-                        <p>Awared Prestigious <strong>Presidential Fellowship </strong> at Koç University for PhD studies.</p>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="news-month">March</span>
-                        <span class="news-year">2026</span>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-badge">📄 Paper Accepted</div>
-                        <p>Our Paper on Transformer-Driven Beam Control got accepted to <strong>IEEE OJCOMS</strong></p>
-                    </div>
-                </div>
-                    
-                <div class="news-item">
-                        <div class="news-date">
-                            <span class="news-month">March</span>
-                            <span class="news-year">2026</span>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-badge highlight">🏆 Award</div>
-                            <p>Awared highly selective <strong>Distinguished Science and Technoloy Scholarship </strong> at Sabanci University for PhD studies, declined the offer in favor of starting PhD studies at Koc University.</p>
-                        </div>
-                </div>
-                
-                <div class="news-item">
-                        <div class="news-date">
-                            <span class="news-month">Feb</span>
-                            <span class="news-year">2026</span>
-                        </div>
-                        <div class="news-content">
-                            <div class="news-badge highlight">🎓 New Beginning</div>
-                            <p>Started PhD in Electrical Engineering at <strong>Koc University</strong></p>
-                        </div>
-                </div>
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="news-month">Sep</span>
-                        <span class="news-year">2025</span>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-badge highlight">🎓 Graduation</div>
-                        <p>I graduated from Sabanci University majoring in Computer Science and Engineering with high honors</p>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="news-month">Apr</span>
-                        <span class="news-year">2025</span>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-badge">📄 Paper Accepted</div>
-                        <p>Our Paper on FET Modeling got accepted for oral presentation at <strong>IEEE SMACD 2025</strong></p>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="news-month">Dec</span>
-                        <span class="news-year">2024</span>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-badge">✈️ Conference</div>
-                        <p>Attended <strong>NeurIPS 2024</strong> in Vancouver 🇨🇦</p>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="news-month">Jun</span>
-                        <span class="news-year">2024</span>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-badge">📄 Paper Accepted</div>
-                        <p>STRIDE got accepted to <strong>AutoRL Workshop at ICML 2024</strong> in Vienna 🇦🇹</p>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="news-month">Aug</span>
-                        <span class="news-year">2023</span>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-badge highlight">🏆 Award</div>
-                        <p>Won <strong>Dilek Sabanci Scholarship</strong> for academic overachievement covering 100% of tuition until graduation</p>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="news-month">Sep</span>
-                        <span class="news-year">2022</span>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-badge highlight">🏆 Award</div>
-                        <p>Won <strong>Sakip Sabanci 100% Encouragement Scholarship</strong> due to academic achievement</p>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-date">
-                        <span class="news-month">Sep</span>
-                        <span class="news-year">2021</span>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-badge highlight">🎓 New Beginning</div>
-                        <p>Started at <strong>Sabanci University</strong></p>
-                    </div>
+                    <aside class="about-facts" aria-label="At a glance">
+                        <dl>
+                            <div><dt>Advisor</dt><dd>Prof. Sinem Coleri, IEEE Fellow</dd></div>
+                            <div><dt>Lab</dt><dd>Wireless Networks Laboratory</dd></div>
+                            <div><dt>Focus</dt><dd>Deep learning · Transformers · Physical layer</dd></div>
+                            <div><dt>Base</dt><dd>Istanbul, Türkiye</dd></div>
+                        </dl>
+                    </aside>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="timeline">
+        <!-- ============ II. News ============ -->
+        <section id="news" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-no">Sec. II</span>
+                    <h2 class="section-title">News</h2>
+                </header>
+                <ol class="news-log" reversed>
+                    <li class="news-row">
+                        <span class="news-date">2026 · 04</span>
+                        <span class="tag tag-award">Award</span>
+                        <p>Awarded the prestigious <strong>Presidential Fellowship</strong> at Koç University for PhD studies.</p>
+                    </li>
+                    <li class="news-row">
+                        <span class="news-date">2026 · 03</span>
+                        <span class="tag tag-paper">Paper</span>
+                        <p>Our paper on transformer-driven beam control accepted to <strong>IEEE OJCOMS</strong>.</p>
+                    </li>
+                    <li class="news-row">
+                        <span class="news-date">2026 · 03</span>
+                        <span class="tag tag-award">Award</span>
+                        <p>Awarded the highly selective <strong>Distinguished Science and Technology Scholarship</strong> at Sabancı University for PhD studies; declined in favor of starting the PhD at Koç University.</p>
+                    </li>
+                    <li class="news-row">
+                        <span class="news-date">2026 · 02</span>
+                        <span class="tag tag-mile">Milestone</span>
+                        <p>Started the PhD in Electrical Engineering at <strong>Koç University</strong>.</p>
+                    </li>
+                    <li class="news-row">
+                        <span class="news-date">2025 · 09</span>
+                        <span class="tag tag-mile">Milestone</span>
+                        <p>Graduated from Sabancı University in Computer Science and Engineering, with high honors.</p>
+                    </li>
+                    <li class="news-row">
+                        <span class="news-date">2025 · 04</span>
+                        <span class="tag tag-paper">Paper</span>
+                        <p>Our paper on FET modeling accepted for oral presentation at <strong>IEEE SMACD 2025</strong>.</p>
+                    </li>
+                    <li class="news-row">
+                        <span class="news-date">2024 · 12</span>
+                        <span class="tag tag-conf">Conf.</span>
+                        <p>Attended <strong>NeurIPS 2024</strong> in Vancouver, Canada.</p>
+                    </li>
+                    <li class="news-row">
+                        <span class="news-date">2024 · 06</span>
+                        <span class="tag tag-paper">Paper</span>
+                        <p><strong>STRIDE</strong> accepted to the AutoRL Workshop at <strong>ICML 2024</strong> in Vienna, Austria.</p>
+                    </li>
+                    <li class="news-row">
+                        <span class="news-date">2023 · 08</span>
+                        <span class="tag tag-award">Award</span>
+                        <p>Won the <strong>Dilek Sabancı Scholarship</strong> for academic overachievement, covering 100% of tuition until graduation.</p>
+                    </li>
+                    <li class="news-row">
+                        <span class="news-date">2022 · 09</span>
+                        <span class="tag tag-award">Award</span>
+                        <p>Won the <strong>Sakıp Sabancı 100% Encouragement Scholarship</strong> for academic achievement.</p>
+                    </li>
+                    <li class="news-row">
+                        <span class="news-date">2021 · 09</span>
+                        <span class="tag tag-mile">Milestone</span>
+                        <p>Started at <strong>Sabancı University</strong>.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+        <!-- ============ III. Research ============ -->
+        <section id="research" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-no">Sec. III</span>
+                    <h2 class="section-title">Research</h2>
+                </header>
+                <div class="entries">
+
+                    <article class="entry">
+                        <div class="entry-meta">
+                            <span class="entry-dates">Sep 2025 — Jan 2026</span>
+                            <span class="entry-org">Sabancı University</span>
+                        </div>
+                        <div class="entry-body">
+                            <h3>AI for Wireless Communications</h3>
+                            <p>Developed CORTEX, a transformer-based beam selection system for terahertz (THz) UAV communications. The architecture combines convolutional front-ends with causal transformers using rotary position embeddings (RoPE) for drone state prediction. Key techniques include a two-stage approach for angle prediction and beam selection, circular-aware angle refinement, knowledge distillation, and focal loss for class imbalance.</p>
+                            <p class="entry-pi">Supervised by Prof. Özgür Gürbüz</p>
+                            <div class="chip-row"><span class="chip chip-accent">Accepted to IEEE OJCOMS · Q1, JIF 6.1</span></div>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-meta">
+                            <span class="entry-dates">Sep 2025 — Dec 2025</span>
+                            <span class="entry-org">Sabancı University</span>
+                        </div>
+                        <div class="entry-body">
+                            <h3>Backdoor Attacks on Time-Series Models</h3>
+                            <p>Security evaluation and attack development for state-of-the-art time-series models. Implemented and extended two recent approaches: input-aware poisoning attacks that craft sample-specific triggers, and generative-model-based trigger synthesis (GAN / conditional generative models) to produce stealthy backdoors against RNNs, LSTMs, and transformer-based time-series classifiers. Conducted threat-model design, empirical evaluations on standard benchmarks, and initial defenses.</p>
+                            <p class="entry-pi">Supervised by Prof. Emre Özfatura</p>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-meta">
+                            <span class="entry-dates">Jan 2025 — Mar 2025</span>
+                            <span class="entry-org">Shanghai AI Lab · remote</span>
+                        </div>
+                        <div class="entry-body">
+                            <h3>Mechanistic Analysis of Language Models</h3>
+                            <p>Researched mechanistic analysis and interpretability of transformer-based language models to enhance AI reliability and safety. Implemented a Meta-CoT-based approach to automate mechanistic interpretability in transformer architectures.</p>
+                            <p class="entry-pi">Supervised by Wenyu Du (HKU) and Dr. Jie Fu (Shanghai AI Lab)</p>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-meta">
+                            <span class="entry-dates">Feb 2024 — Jun 2025</span>
+                            <span class="entry-org">Sabancı University · graduation project</span>
+                        </div>
+                        <div class="entry-body">
+                            <h3>FET Modeling Using Deep Learning</h3>
+                            <p>Developed robust FET models using data-driven techniques, exploring data augmentation strategies including GANs and autoencoders. Enhanced a limited dataset of 80,000 samples from 27 transistors for improved semiconductor device modeling.</p>
+                            <p class="entry-pi">Supervised by Prof. Korkut Kaan Tokgöz</p>
+                            <div class="chip-row"><span class="chip chip-accent">Oral presentation · IEEE SMACD 2025</span></div>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-meta">
+                            <span class="entry-dates">Oct 2023 — May 2024</span>
+                            <span class="entry-org">Yale University · remote</span>
+                        </div>
+                        <div class="entry-body">
+                            <h3>LLM Agent Framework for Strategic Decision-Making</h3>
+                            <p>Conducted research on enhancing decision-making by LLMs in multi-agent settings by integrating external tools. Developed the STRIDE framework for strategic and interactive decision-making.</p>
+                            <p class="entry-pi">Supervised by Prof. Zhuoran Yang and Dr. Chuanhao Li</p>
+                            <div class="chip-row">
+                                <span class="chip chip-accent">AutoRL Workshop · ICML 2024</span>
+                                <span class="chip chip-accent">INFORMS Workshop · EC 2024</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-meta">
+                            <span class="entry-dates">Jul 2023 — Oct 2023</span>
+                            <span class="entry-org">Sabancı University</span>
+                        </div>
+                        <div class="entry-body">
+                            <h3>Political Affiliation Analysis Using CV and ML</h3>
+                            <p>Implemented self-supervised clustering algorithms (SwAV and Barlow Twins) to categorize over 7 million Twitter profile pictures, estimating the distribution of political affiliations and human/bot ratios.</p>
+                            <p class="entry-pi">Supervised by Prof. Onur Varol</p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ IV. Publications ============ -->
+        <section id="publications" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-no">Sec. IV</span>
+                    <h2 class="section-title">Publications &amp; Patents</h2>
+                </header>
+                <div class="pub-list">
+
+                    <article class="pub">
+                        <span class="pub-index" aria-hidden="true">[4]</span>
+                        <div class="pub-body">
+                            <div class="pub-tags"><span class="tag tag-paper">Journal</span><span class="pub-year">2026</span></div>
+                            <h3>Transformer-Driven Beam Control via Reconfigurable Antenna Arrays for Terahertz UAV Communications</h3>
+                            <p class="pub-authors">M. Usta, <strong>M. Bafarassat</strong>, M. Erdem, Ö. Gürbüz, A. Saeed, K. Tokgöz, K. Qaraqe</p>
+                            <p class="pub-venue">IEEE Open Journal of the Communications Society</p>
+                            <a class="pub-link" href="https://ieeexplore.ieee.org/document/11435389" target="_blank" rel="noopener">IEEE Xplore <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </article>
+
+                    <article class="pub">
+                        <span class="pub-index" aria-hidden="true">[3]</span>
+                        <div class="pub-body">
+                            <div class="pub-tags"><span class="tag tag-award">Patent</span><span class="pub-year">2025</span></div>
+                            <h3>A Deep Neural Network–Based FET Simulation Method and System Implementing the Model</h3>
+                            <p class="pub-authors"><strong>M. Bafarassat</strong>, K. K. Tokgöz</p>
+                            <p class="pub-venue">Application No. 2025/008782 · filed June 30, 2025 · Ref. P7069-TR</p>
+                        </div>
+                    </article>
+
+                    <article class="pub">
+                        <span class="pub-index" aria-hidden="true">[2]</span>
+                        <div class="pub-body">
+                            <div class="pub-tags"><span class="tag tag-paper">Conference</span><span class="pub-year">2025</span></div>
+                            <h3>FET Modeling with Deep Neural Networks and GAN-Augmented Small Measurement Dataset</h3>
+                            <p class="pub-authors"><strong>M. Bafarassat</strong>, M. Yazıcı, K. K. Tokgöz</p>
+                            <p class="pub-venue">IEEE SMACD 2025 · oral presentation</p>
+                            <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/11092163/" target="_blank" rel="noopener">IEEE Xplore <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </article>
+
+                    <article class="pub">
+                        <span class="pub-index" aria-hidden="true">[1]</span>
+                        <div class="pub-body">
+                            <div class="pub-tags"><span class="tag tag-paper">Conference</span><span class="pub-year">2024</span></div>
+                            <h3>STRIDE: A Tool-Assisted LLM Agent Framework for Strategic and Interactive Decision-Making</h3>
+                            <p class="pub-authors">C. Li, R. Yang, T. Li, <strong>M. Bafarassat</strong>, K. Sharifi, D. Bergemann, Z. Yang</p>
+                            <p class="pub-venue">AutoRL Workshop at ICML 2024</p>
+                            <a class="pub-link" href="https://arxiv.org/abs/2405.16376" target="_blank" rel="noopener">arXiv <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ V. Education ============ -->
+        <section id="education" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-no">Sec. V</span>
+                    <h2 class="section-title">Education</h2>
+                </header>
+                <div class="edu-rail">
+
+                    <article class="edu-item">
                         <h3>PhD in Electrical Engineering</h3>
-                        <h4>Koc University</h4>
-                        <p class="timeline-date">February 2026 - Febrauary 2031</p>
+                        <p class="edu-school">Koç University</p>
+                        <p class="edu-dates">Feb 2026 — 2031 (expected)</p>
                         <ul>
-                            <li>Working on intersection of Wireless Communications and AI. Advised by Professor Sinem Coleri (IEEE Fellow).</li>
+                            <li>Working at the intersection of wireless communications and AI, advised by Prof. Sinem Coleri (IEEE Fellow).</li>
                         </ul>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+                    <article class="edu-item">
                         <h3>BSc in Computer Science and Engineering</h3>
-                        <h4>Sabanci University</h4>
-                        <p class="timeline-date">September 2021 - September 2025</p>
+                        <p class="edu-school">Sabancı University</p>
+                        <p class="edu-dates">Sep 2021 — Sep 2025</p>
                         <ul>
-                            <li>Graduated in September 2025</li>
-                            <li>CGPA: 3.74/4.0 - Ranked 63/729 (top 8%) in Faculty of Engineering</li>
-                            <li>Awarded the Dilek Sabanci Scholarship for exceptional academic performance</li>
+                            <li>Graduated with high honors in September 2025.</li>
+                            <li>CGPA 3.74 / 4.0 — ranked 63 of 729 (top 8%) in the Faculty of Engineering.</li>
+                            <li>Awarded the Dilek Sabancı Scholarship for exceptional academic performance.</li>
                         </ul>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Master of Business Administration (MBA)</h3>
-                        <h4>Sharif University of Technology</h4>
-                        <p class="timeline-date">February 2016 - February 2019</p>
+                    <article class="edu-item">
+                        <h3>Master of Business Administration</h3>
+                        <p class="edu-school">Sharif University of Technology</p>
+                        <p class="edu-dates">Feb 2016 — Feb 2019</p>
                         <ul>
-                            <li>Ranked 5th in Masters Entrance Exam out of 30,000 students (Top 0.02%)</li>
+                            <li>Ranked 5th of 30,000 in the master's entrance exam (top 0.02%).</li>
                         </ul>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+                    <article class="edu-item">
                         <h3>BSc in Chemical Engineering</h3>
-                        <h4>Sharif University of Technology</h4>
-                        <p class="timeline-date">September 2009 - July 2015</p>
+                        <p class="edu-school">Sharif University of Technology</p>
+                        <p class="edu-dates">Sep 2009 — Jul 2015</p>
                         <ul>
-                            <li>Ranked 1374th in Undergraduate Entrance Exam out of 308,875 students (Top 0.4%)</li>
+                            <li>Ranked 1,374th of 308,875 in the national entrance exam (top 0.4%).</li>
+                        </ul>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ VI. Experience ============ -->
+        <section id="experience" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-no">Sec. VI</span>
+                    <h2 class="section-title">Experience</h2>
+                </header>
+                <div class="entries">
+
+                    <article class="entry">
+                        <div class="entry-meta">
+                            <span class="entry-dates">Jun 2025 — Jul 2025</span>
+                            <span class="entry-org">Intraverse · Lugano, Switzerland · remote</span>
+                        </div>
+                        <div class="entry-body">
+                            <h3>AI Engineering Intern</h3>
+                            <ul class="entry-list">
+                                <li>Designed and implemented a middleware pipeline connecting Unity game-engine events to LLM APIs.</li>
+                                <li>Developed a plugin-based architecture for extensible character and quest design.</li>
+                                <li>Produced documentation and performance benchmarks for real-time multiplayer scenarios.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-meta">
+                            <span class="entry-dates">Feb 2020 — Mar 2023</span>
+                            <span class="entry-org">HezarDastan Holding · Istanbul · remote</span>
+                        </div>
+                        <div class="entry-body">
+                            <h3>AI Product Manager</h3>
+                            <ul class="entry-list">
+                                <li>Led a cross-functional team of 7 software engineers and ML researchers plus 2 operations/marketing members.</li>
+                                <li>Co-founded and introduced 3 AI-driven products.</li>
+                                <li>Developed <strong>Recrupen</strong>, an ATS processing 5,000+ resumes annually for 200+ hires across 6 subsidiaries.</li>
+                                <li>Launched <strong>QShoot</strong>, an AI math problem-solving app reaching 10K users in 2 months.</li>
+                                <li>Launched <strong>Gorgeous</strong>, an AI makeup recommendation app reaching 1K users in 2 days.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="entry">
+                        <div class="entry-meta">
+                            <span class="entry-dates">Sep 2015 — Jan 2020</span>
+                            <span class="entry-org">HezarDastan Holding · Tehran, Iran</span>
+                        </div>
+                        <div class="entry-body">
+                            <h3>Human Resources Manager</h3>
+                            <ul class="entry-list">
+                                <li>Managed a team of 40 across HR, recruitment, L&amp;D, and administration.</li>
+                                <li>Built and scaled a recruitment team from scratch to 7 full-time recruiters.</li>
+                                <li>Drove company growth from 100 to 300 employees within two years.</li>
+                                <li>Raised employee-satisfaction NPS from the low 80s to 92%.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ VII. Skills ============ -->
+        <section id="skills" class="section">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-no">Sec. VII</span>
+                    <h2 class="section-title">Skills</h2>
+                </header>
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <h3>Programming &amp; Tools</h3>
+                        <ul class="chip-row">
+                            <li class="chip">Python</li><li class="chip">C++</li><li class="chip">PyTorch</li>
+                            <li class="chip">TensorFlow</li><li class="chip">Git</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h3>AI &amp; Machine Learning</h3>
+                        <ul class="chip-row">
+                            <li class="chip">Deep learning</li><li class="chip">LLMs</li><li class="chip">Computer vision</li>
+                            <li class="chip">Reinforcement learning</li><li class="chip">GANs</li><li class="chip">Self-supervised learning</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Electronics &amp; Engineering</h3>
+                        <ul class="chip-row">
+                            <li class="chip">Wireless communications</li><li class="chip">Communications networks</li>
+                            <li class="chip">Signal processing</li><li class="chip">Multimedia communications</li>
+                        </ul>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Languages</h3>
+                        <ul class="chip-row">
+                            <li class="chip">English · C1</li><li class="chip">Turkish · C1</li>
+                            <li class="chip">Azeri · native</li><li class="chip">Persian · native</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Research Section -->
-    <section id="research" class="section">
-        <div class="container">
-            <h2 class="section-title">Research Experience</h2>
-            <div class="research-grid">
-
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3>AI for Wireless Communications</h3>
-                        <p class="research-date">September 2025 - January 2026</p>
+        <!-- ============ VIII. Contact ============ -->
+        <section id="contact" class="section section-contact">
+            <div class="container">
+                <header class="section-head">
+                    <span class="section-no">Sec. VIII</span>
+                    <h2 class="section-title">Contact</h2>
+                </header>
+                <div class="contact-block">
+                    <p class="contact-lede">Open to research collaboration — and always happy to talk about learning for wireless systems.</p>
+                    <a class="contact-email" href="mailto:milad.bafarassat@gmail.com">milad.bafarassat@gmail.com</a>
+                    <div class="contact-actions">
+                        <a href="https://github.com/MiladBaf" target="_blank" rel="noopener" class="btn btn-outline">GitHub <span aria-hidden="true">↗</span></a>
+                        <a href="https://scholar.google.com/citations?hl=en&user=a0-b8i4AAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener" class="btn btn-outline">Google Scholar <span aria-hidden="true">↗</span></a>
+                        <a href="https://www.linkedin.com/in/miladbafarassat" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn <span aria-hidden="true">↗</span></a>
                     </div>
-                    <p class="research-institution">Sabanci University</p>
-                    <p class="research-description">Developing CORTEX, a transformer-based beam selection system for terahertz (THz) UAV communications. The architecture combines convolutional front-ends with causal transformers using rotary position embeddings (RoPE) for drone state prediction. Key techniques include a two-stage approach for angle prediction and beam selection, circular-aware angle refinement, knowledge distillation, and focal loss for class imbalance. Paper accepted to the IEEE Open Journal of the Communications Society.</p>
-                    <p class="research-supervisor">Supervised by Professor Ozgur Gurbuz</p>
-                    <div class="research-outcome">
-                        <span class="badge">Accepted to OJCOMS (Q1-JIF=6.1)</span>
-                    </div>
-                </div>
-
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3>Backdoor Attacks on Time-Series Models</h3>
-                        <p class="research-date">September 2025 - December 2025</p>
-                    </div>
-                    <p class="research-institution">Sabanci University</p>
-                    <p class="research-description">Research focuses on security evaluation and attack development for state-of-the-art time-series models. Implemented and extended
-two recent approaches: (1) input-aware poisoning attacks that craft sample-specific triggers, and (2) generative-model based trigger
-synthesis (GAN/conditional generative models) to produce stealthy backdoors against RNNs, LSTMs and transformer-based time-
-series classifiers. Conducted threat-model design, empirical evaluations on standard benchmarks, and initial defenses/mitigations.</p>
-                    <p class="research-supervisor">Supervised by Professor Emre Ozfatura</p>
-                </div>
-                
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3>Mechanistic Analysis of Language Models</h3>
-                        <p class="research-date">January 2025 - March 2025</p>
-                    </div>
-                    <p class="research-institution">Shanghai AI Lab (Remote)</p>
-                    <p class="research-description">Researched mechanistic analysis and interpretability of transformer-based language models to enhance AI reliability and safety. Implemented a Meta-CoT-based approach to automate mechanistic interpretability in transformer architectures.</p>
-                    <p class="research-supervisor">Supervised by Wenyu Du (HKU) and Dr. Jie Fu (Shanghai AI Lab)</p>
-                </div>
-
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3>FET Modeling using Deep Learning</h3>
-                        <p class="research-date">February 2024 - June 2025</p>
-                    </div>
-                    <p class="research-institution">Sabanci University (Graduation Project)</p>
-                    <p class="research-description">Developed robust FET models using data-driven techniques, exploring data augmentation strategies including GANs and Autoencoders. Enhanced a limited dataset of 80,000 samples from 27 transistors for improved semiconductor device modeling.</p>
-                    <p class="research-supervisor">Supervised by Professor Korkut Kaan Tokgoz</p>
-                    <div class="research-outcome">
-                        <span class="badge">Oral Presentation at IEEE SMACD 2025</span>
-                    </div>
-                </div>
-
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3>LLM Agent Framework for Strategic Decision-Making</h3>
-                        <p class="research-date">October 2023 - May 2024</p>
-                    </div>
-                    <p class="research-institution">Yale University (Remote)</p>
-                    <p class="research-description">Conducted research on enhancing decision-making by LLMs in multi-agent settings by integrating external tools. Developed the STRIDE framework for strategic and interactive decision-making.</p>
-                    <p class="research-supervisor">Supervised by Professor Zhuoran Yang and Dr. Chuanhao Li</p>
-                    <div class="research-outcome">
-                        <span class="badge">AutoRL Workshop at ICML 2024</span>
-                        <span class="badge">INFORMS Workshop at EC 2024</span>
-                    </div>
-                </div>
-
-                <div class="research-card">
-                    <div class="research-header">
-                        <h3>Political Affiliations Analysis using CV and ML</h3>
-                        <p class="research-date">July 2023 - October 2023</p>
-                    </div>
-                    <p class="research-institution">Sabanci University</p>
-                    <p class="research-description">Implemented advanced Self-Supervised Learning clustering algorithms (SwAV and BARLOW Twins) to categorize over 7 million Twitter profile pictures, determining distribution of political affiliations and human/bot ratios.</p>
-                    <p class="research-supervisor">Supervised by Professor Onur Varol</p>
+                    <p class="contact-loc">Istanbul, Türkiye</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Publications Section -->
-    <section id="publications" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Publications & Patents</h2>
-            <div class="publications-list">
+    </main>
 
-                <div class="publication-item">
-                    <div class="publication-type">Journal Paper</div>
-                    <h3 class="publication-title">Transformer-Driven Beam Control via Reconfigurable Antenna Arrays for Terahertz UAV Communications</h3>
-                    <p class="publication-authors">M. Usta, <strong>Milad Bafarassat</strong>, M. Erdem, O. Gurbuz,  A. Saeed, K. Tokgoz, K. Qaraqe</p>
-                    <p class="publication-venue">IEEE OJCOMS 2026</p>
-                    <a href="https://ieeexplore.ieee.org/document/11435389" target="_blank" class="publication-link">
-                        <i class="fas fa-external-link-alt"></i> View Paper
-                    </a>
-                </div>
-
-                <div class="publication-item">
-                    <div class="publication-type">Patent</div>
-                    <h3 class="publication-title">A Deep Neural Network-Based FET Simulation Method and System Implementing the Model</h3>
-                    <p class="publication-authors"><strong>Milad Bafarassat</strong>, Korkut Kaan Tokgoz</p>
-                    <p class="publication-venue">Application No.: 2025/008782 | Filing Date: June 30, 2025 | Reference No.: P7069-TR</p>
-                </div>
-
-                <div class="publication-item">
-                    <div class="publication-type">Conference Paper</div>
-                    <h3 class="publication-title">FET Modeling with Deep Neural Networks and GAN-Augmented Small Measurement Dataset</h3>
-                    <p class="publication-authors"><strong>Milad Bafarassat</strong>, Melik Yazici, Korkut Kaan Tokgoz</p>
-                    <p class="publication-venue">Oral Presentation at SMACD 2025</p>
-                    <a href="https://ieeexplore.ieee.org/abstract/document/11092163/" target="_blank" class="publication-link">
-                        <i class="fas fa-external-link-alt"></i> View Paper
-                    </a>
-                </div>
-                
-                <div class="publication-item">
-                    <div class="publication-type">Conference Paper</div>
-                    <h3 class="publication-title">STRIDE: A Tool-Assisted LLM Agent Framework for Strategic and Interactive Decision-Making</h3>
-                    <p class="publication-authors">C. Li, R. Yang, T. Li, <strong>Milad Bafarassat</strong>, K. Sharifi, D. Bergemann, Z. Yang</p>
-                    <p class="publication-venue">AutoRL Workshop at ICML 2024</p>
-                    <a href="https://arxiv.org/abs/2405.16376" target="_blank" class="publication-link">
-                        <i class="fas fa-external-link-alt"></i> View Paper
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <h3>AI Engineering Intern</h3>
-                        <p class="experience-company">Intraverse, Lugano, Switzerland (Remote)</p>
-                        <p class="experience-date">June 2025 - July 2025</p>
-                    </div>
-                    <ul class="experience-list">
-                        <li>Designed and implemented a middleware pipeline connecting Unity game engine events to LLM APIs</li>
-                        <li>Developed plugin-based architecture for extensible character and quest design</li>
-                        <li>Produced documentation and performance benchmarks for real-time multiplayer scenarios</li>
-                    </ul>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <h3>AI Product Manager</h3>
-                        <p class="experience-company">HezarDastan Holding, Istanbul, Turkey (Remote)</p>
-                        <p class="experience-date">February 2020 - March 2023</p>
-                    </div>
-                    <ul class="experience-list">
-                        <li>Led a cross-functional team of 7 software engineers, ML researchers, and 2 operations/marketing members</li>
-                        <li>Co-founded and introduced 3 innovative AI-driven products</li>
-                        <li>Developed <strong>Recrupen</strong>, an ATS processing 5000+ resumes annually for 200+ hires across 6 subsidiaries</li>
-                        <li>Launched <strong>QShoot</strong>, an AI math problem-solving app reaching 10K users in 2 months</li>
-                        <li>Launched <strong>Gorgeous</strong>, an AI makeup recommendation app reaching 1K users in 2 days</li>
-                    </ul>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <h3>Human Resources Manager</h3>
-                        <p class="experience-company">HezarDastan Holding, Tehran, Iran</p>
-                        <p class="experience-date">September 2015 - January 2020</p>
-                    </div>
-                    <ul class="experience-list">
-                        <li>Managed a team of 40 professionals across HR, Recruitment, L&D, and Administration</li>
-                        <li>Built and scaled a recruitment team from scratch to 7 full-time recruiters</li>
-                        <li>Drove company growth from 100 to 300 employees within two years</li>
-                        <li>Improved employee satisfaction, raising NPS from low 80%s to 92%</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Programming & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Git</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Deep Learning</span>
-                        <span class="skill-tag">LLMs</span>
-                        <span class="skill-tag">Computer Vision</span>
-                        <span class="skill-tag">Reinforcement Learning</span>
-                        <span class="skill-tag">GANs</span>
-                        <span class="skill-tag">Self-Supervised Learning</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-microchip"></i> Electronics & Engineering</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Hardware Modeling</span>
-                        <span class="skill-tag">Signal Processing</span>
-                        <span class="skill-tag">Multimedia Communications</span>
-                        <span class="skill-tag">Computer Networks</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3><i class="fas fa-language"></i> Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">English (C1)</span>
-                        <span class="skill-tag">Turkish (C1)</span>
-                        <span class="skill-tag">Azeri (Native)</span>
-                        <span class="skill-tag">Persian (Native)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:milad.bafarassat@gmail.com">milad.bafarassat@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Istanbul, Turkey</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-social">
-                    <h3>Connect With Me</h3>
-                    <div class="social-links-large">
-                        <a href="https://github.com/MiladBaf" target="_blank" class="social-btn github">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                        <a href="https://scholar.google.com/citations?hl=en&user=a0-b8i4AAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="social-btn scholar">
-                            <i class="fas fa-graduation-cap"></i> Google Scholar
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Milad Bafarassat. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>© 2026 Milad Bafarassat</span>
+            <span>Istanbul · 41.008° N, 28.978° E</span>
         </div>
     </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
     <script src="script.js"></script>
 </body>
